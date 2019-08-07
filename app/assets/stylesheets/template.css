@@ -2172,7 +2172,7 @@ input, select, textarea {
 			-webkit-transition: opacity 0.25s ease-in-out;
 			-ms-transition: opacity 0.25s ease-in-out;
 			transition: opacity 0.25s ease-in-out;
-			background-image: url("overlay.png");
+			background: image-url("overlay.png");
 			content: '';
 			display: block;
 			height: 100%;
@@ -2700,7 +2700,7 @@ input, select, textarea {
 
 	#header {
 		background-attachment: scroll,							scroll,					fixed;
-		background-image: url("top-3200.svg"), url("overlay.png"), url("header.jpg");
+		background: image-url("top-3200.svg"), image-url("overlay.png"), image-url("header.jpg");
 		background-position: bottom center,					top left,				center center;
 		background-repeat: repeat-x,						repeat,					no-repeat;
 		background-size: 3200px 460px,					auto,					cover;
@@ -2791,7 +2791,7 @@ input, select, textarea {
 	#footer {
 		background-attachment: scroll;
 		background-color: #4eb980;
-		background-image: url("bottom-3200.svg");
+		background: image-url("bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
 		background-size: 3200px 460px;
@@ -3016,7 +3016,7 @@ input, select, textarea {
 
 			#header {
 				background-attachment: scroll,							scroll,							scroll;
-				background-image: url("top-1600.svg"), url("overlay.png"), url("header.jpg");
+				background: image-url("top-1600.svg"), image-url("overlay.png"), image-url("header.jpg");
 				background-size: 1600px 230px,					auto,							cover;
 				padding: 6em 0 12em 0;
 			}
@@ -3040,7 +3040,7 @@ input, select, textarea {
 		/* Footer */
 
 			#footer {
-				background-image: url("bottom-1600.svg");
+				background: image-url("bottom-1600.svg");
 				background-size: 1600px 230px;
 				margin-top: -100px;
 				padding: calc(230px + 4em) 0 6em 0;
@@ -3168,7 +3168,7 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				background-image: url("top-1280.svg"), url("overlay.png"), url("header.jpg");
+				background: image-url("top-1280.svg"), image-url("overlay.png"), image-url("header.jpg");
 				background-size: 1280px 184px,						auto,							cover;
 				padding: 3em 0 7em 0;
 			}
@@ -3196,7 +3196,7 @@ input, select, textarea {
 		/* Footer */
 
 			#footer {
-				background-image: url("bottom-1280.svg");
+				background: image-url("bottom-1280.svg");
 				background-size: 1280px 184px;
 				margin-top: -75px;
 				padding: calc(184px + 2em) 0 2em 0;
