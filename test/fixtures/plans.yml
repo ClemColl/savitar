@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  budget: 1
+  duration: MyString
+  rh: MyString
+  answer: one
+
+two:
+  name: MyString
+  budget: 1
+  duration: MyString
+  rh: MyString
+  answer: two
