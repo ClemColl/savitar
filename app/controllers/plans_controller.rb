@@ -2,13 +2,11 @@ class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
 
   # GET /plans
-  # GET /plans.json
   def index
     @plans = Plan.all
   end
 
   # GET /plans/1
-  # GET /plans/1.json
   def show
   end
 
@@ -22,32 +20,22 @@ class PlansController < ApplicationController
   end
 
   # POST /plans
-  # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
 
-    respond_to do |format|
-      if @plan.save
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
-        format.json { render :show, status: :created, location: @plan }
-      else
-        format.html { render :new }
-        format.json { render json: @plan.errors, status: :unprocessable_entity }
-      end
+    if @plan.save
+      redirect_to @plan, notice: 'Plan was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /plans/1
-  # PATCH/PUT /plans/1.json
   def update
-    respond_to do |format|
-      if @plan.update(plan_params)
-        format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @plan }
-      else
-        format.html { render :edit }
-        format.json { render json: @plan.errors, status: :unprocessable_entity }
-      end
+    if @plan.update(plan_params)
+      redirect_to @plan, notice: 'Plan was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -55,10 +43,7 @@ class PlansController < ApplicationController
   # DELETE /plans/1.json
   def destroy
     @plan.destroy
-    respond_to do |format|
-      format.html { redirect_to plans_url, notice: 'Plan was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to plans_url, notice: 'Plan was successfully destroyed.'
   end
 
   private

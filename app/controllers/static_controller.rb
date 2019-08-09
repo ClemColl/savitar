@@ -2,7 +2,8 @@ class StaticController < ApplicationController
   def home
   end
 
-  def liste_question
+  def new_questionnaire
     @items = Item.all
   end
+
 end

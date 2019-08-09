@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@questionnaire) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%#= f.association :answers, label_method: :answer_text, as: :radio_buttons, input_html: { class: 'radio' }  %>
+
+  <% Question.all.each do |q| %>
+
+    <p><%= q.text %></p>
+    
+    <% q.answers.each do |a| %>
+      <%= f.label a.text %>
+      <%= radio_button_tag "question[#{q.id}]", a.id %>
+    <% end %>
+
+  <% end %>
+    
+ 
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

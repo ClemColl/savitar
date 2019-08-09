@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :answers
   resources :questions
   resources :items
-
-  get '/liste_question' => 'static#liste_question'
+  resources :questionnaires
 
   root to: 'static#home'
 end

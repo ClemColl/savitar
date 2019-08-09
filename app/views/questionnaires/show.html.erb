@@ -1,0 +1,13 @@
+<%#= link_to 'Retour', root_path %>
+
+<% @questionnaire.answers.each do |a| %>
+    <%= a.question.text %> => 
+    <%= a.text %> | 
+    <%= a.points %> point(s)
+    <br>
+<% end %>
+<br>
+<% Item.first.questions.each do |q| %>
+    <%= q.answers.maximum(:points) %>
+     | 
+<% end %>
