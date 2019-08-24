@@ -1,3 +1,27 @@
+<% option = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scale: {
+        ticks: {
+            beginAtZero: true,
+            max: 50
+        }
+    }
+} %>
+ <% data = {
+  labels: Item.all.pluck(:name),
+  datasets: [
+    {
+        label: "Votre score",
+        backgroundColor: "rgba(220,220,220,0.2)",
+        borderColor: "#4EB980",
+        data: [35, 39, 40, 32]
+    }
+  ]
+ } %>
+
+<%= radar_chart          data, option %>
+
 <%#= link_to 'Retour', root_path %>
 
 <% @questionnaire.answers.each do |a| %>

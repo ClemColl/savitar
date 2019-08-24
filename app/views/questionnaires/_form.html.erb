@@ -1,23 +1,54 @@
 
+<style>
+form {
+  width: 80%;
+  margin: auto;
+}
+
+.question {
+  font-weight: 600;
+}
+
+.question_container {
+  margin-bottom: 70px;
+}
+
+.reponse {
+}
+
+.reponse > label {
+  font-size: 1em;
+  text-transform: none;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.reponse > label:hover {
+  color: #4eb980;
+  text-decoration: underline;
+}
+</style>
+
 <%= simple_form_for(@questionnaire) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <%#= f.association :answers, label_method: :answer_text, as: :radio_buttons, input_html: { class: 'radio' }  %>
 
   <% Question.all.each do |q| %>
-
-    <p><%= q.text %></p>
+  <div class="question_container">
+    <p class="question"><%= q.text %></p>
     
     <% q.answers.each do |a| %>
-      <%= f.label a.text %>
-      <%= radio_button_tag "question[#{q.id}]", a.id %>
-    <% end %>
 
+      <div class="reponse">
+        <%= radio_button_tag "question[#{q.id}]", a.id %>
+        <%= f.label a.text, class: "reponse_label", for: "question_#{q.id}_#{a.id}" %>
+      </div>
+      
+    <% end %>
+  </div>
   <% end %>
     
  
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit "Valider vos réponses" %>
   </div>
 <% end %>
