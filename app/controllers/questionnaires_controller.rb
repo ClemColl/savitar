@@ -8,6 +8,69 @@ class QuestionnairesController < ApplicationController
 
   # GET /questionnaires/1
   def show
+    item_names = []
+    @point_max = [0, 0, 0, 0]
+    nb_point = [0, 0, 0 ,0]
+
+    Item.all.each do |i|
+      item_names << i.name
+
+      i.questions.each do |q|
+        case 
+          when i.id == 1
+            @point_max[0] += q.answers.maximum(:points)
+          when i.id == 2
+            @point_max[1] += q.answers.maximum(:points)
+          when i.id == 3
+            @point_max[2] += q.answers.maximum(:points)
+          else
+            @point_max[3] += q.answers.maximum(:points)
+        end
+      end
+    end
+
+    @questionnaire.answers.each do |a|
+      x = a.question.item_id
+      case 
+        when x == 1
+          nb_point[0] += a.points
+        when x == 2
+          nb_point[1] += a.points
+        when x == 3
+          nb_point[2] += a.points
+        else
+          nb_point[3] += a.points
+      end
+    end
+    
+    @data = {
+      labels: item_names,
+      datasets: [
+        {
+            #label: "Votre score",
+            backgroundColor: "rgba(220,220,220,0.2)",
+            borderColor: "#4EB980",
+            data: nb_point
+        }
+      ]
+     }
+
+    @option = {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+          display: false
+      },
+      scale: {
+          ticks: {
+              beginAtZero: true,
+              max: @point_max.max
+          },
+          pointLabels: {
+            fontSize: 15
+          }
+      }
+    }
   end
 
   # GET /questionnaires/new

@@ -13,9 +13,6 @@ form {
   margin-bottom: 70px;
 }
 
-.reponse {
-}
-
 .reponse > label {
   font-size: 1em;
   text-transform: none;
@@ -35,7 +32,7 @@ form {
   <div class="question_container">
     <p class="question"><%= q.text %></p>
     
-    <% q.answers.each do |a| %>
+    <% q.answers.order("points asc").each do |a| %>
 
       <div class="reponse">
         <%= radio_button_tag "question[#{q.id}]", a.id %>
@@ -46,8 +43,6 @@ form {
   </div>
   <% end %>
     
- 
-
   <div class="form-actions">
     <%= f.submit "Valider vos réponses" %>
   </div>

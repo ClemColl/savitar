@@ -1,37 +1,16 @@
-<% option = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scale: {
-        ticks: {
-            beginAtZero: true,
-            max: 50
-        }
-    }
-} %>
- <% data = {
-  labels: Item.all.pluck(:name),
-  datasets: [
-    {
-        label: "Votre score",
-        backgroundColor: "rgba(220,220,220,0.2)",
-        borderColor: "#4EB980",
-        data: [35, 39, 40, 32]
-    }
-  ]
- } %>
+<style>
+h1 {
+    padding: 80px;
+    font-size: 2em;
+}
 
-<%= radar_chart          data, option %>
+.chart-container {
+  margin:auto;
+}
+</style>
 
-<%#= link_to 'Retour', root_path %>
+<h1>Votre résultat</h1>
 
-<% @questionnaire.answers.each do |a| %>
-    <%= a.question.text %> => 
-    <%= a.text %> | 
-    <%= a.points %> point(s)
-    <br>
-<% end %>
-<br>
-<% Item.first.questions.each do |q| %>
-    <%= q.answers.maximum(:points) %>
-     | 
-<% end %>
+<div class="chart-container">
+    <%= radar_chart          @data, @option %>
+</div>
