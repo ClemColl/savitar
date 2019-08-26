@@ -22,7 +22,11 @@
 
 <p>
   <strong>Answer:</strong>
-  <%= @plan.answer %>
+  <%= @plan.answer.question.text %>
+  <br>
+  <%= @plan.answer.text %>
+  <br>
+  <%= @plan.answer.points %>
 </p>
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |

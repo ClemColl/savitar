@@ -1995,15 +1995,15 @@ input::-moz-focus-inner {
 	.image {
 		border: 0;
 		display: inline-block;
+		color: #4eb980;
 		position: relative;
 	}
 
 		.image:after {
-			-moz-transition: opacity 0.25s ease-in-out;
-			-webkit-transition: opacity 0.25s ease-in-out;
-			-ms-transition: opacity 0.25s ease-in-out;
-			transition: opacity 0.25s ease-in-out;
-			background: image-url("overlay.png");
+			// -moz-transition: opacity 0.25s ease-in-out;
+			// -webkit-transition: opacity 0.25s ease-in-out;
+			// -ms-transition: opacity 0.25s ease-in-out;
+			// transition: opacity 0.25s ease-in-out;
 			content: '';
 			display: block;
 			height: 100%;
@@ -2045,11 +2045,11 @@ input::-moz-focus-inner {
 		}
 
 			.image.icon:before {
-				-moz-transition: -moz-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
-				-webkit-transition: -webkit-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
-				-ms-transition: -ms-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
-				transition: transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
-				color: #fff;
+				// -moz-transition: -moz-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				// -webkit-transition: -webkit-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				// -ms-transition: -ms-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				// transition: transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				// color: #fff;
 				font-size: 6em;
 				height: 1em;
 				left: 50%;
@@ -2063,10 +2063,10 @@ input::-moz-focus-inner {
 			}
 
 			.image.icon:hover:before {
-				-moz-transform: translateZ(1em);
-				-webkit-transform: translateZ(1em);
-				-ms-transform: translateZ(1em);
-				transform: translateZ(1em);
+				// -moz-transform: translateZ(1em);
+				// -webkit-transform: translateZ(1em);
+				// -ms-transform: translateZ(1em);
+				// transform: translateZ(1em);
 			}
 
 			.image.icon:hover:after {

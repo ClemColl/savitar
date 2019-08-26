@@ -14,3 +14,11 @@ h1 {
 <div class="chart-container">
     <%= radar_chart          @data, @option %>
 </div>
+
+<br><hr>
+
+<h2>Plans d'action</h2>
+
+<% @questionnaire.answers.each do |a| %>
+    <%= a.plans.first.name %>
+<% end %>

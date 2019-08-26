@@ -1,4 +1,4 @@
-<%= form_with(model: plan, local: true) do |form| %>
+<%= simple_form_for(plan, local: true) do |form| %>
   <% if plan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
@@ -32,8 +32,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :answer_id %>
-    <%= form.text_field :answer_id %>
+    <%= form.association :answer, label_method: :answer_text %>
   </div>
 
   <div class="actions">
