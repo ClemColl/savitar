@@ -13,7 +13,7 @@ class QuestionnairesController < ApplicationController
     nb_point = [0, 0, 0 ,0]
 
     Item.all.each do |i|
-      item_names << i.name
+      item_names << i.two_line_name
 
       i.questions.each do |q|
         case 
@@ -47,8 +47,7 @@ class QuestionnairesController < ApplicationController
       labels: item_names,
       datasets: [
         {
-            #label: "Votre score",
-            backgroundColor: "rgba(220,220,220,0.2)",
+            backgroundColor: "rgba(78,185,128,0.2)",
             borderColor: "#4EB980",
             data: nb_point
         }
@@ -58,6 +57,11 @@ class QuestionnairesController < ApplicationController
     @option = {
       responsive: true,
       maintainAspectRatio: false,
+      title: {
+        display: true,
+        text: 'Votre résultat',
+        fontSize: 20,
+      },
       legend: {
           display: false
       },

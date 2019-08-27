@@ -1,6 +1,8 @@
 <style>
 body {
-    transition: none !important;
+    scroll-behavior:smooth;
+}
+.more-info {
 }
 @media screen and (min-width: 601px) {
     .text-info {
@@ -26,7 +28,7 @@ body {
         <p>Un questionnaire pour vous aider dans votre transition 4.0</p>
         <ul class="actions special" style="margin-top:1em;">
             <li><%= link_to "Réaliser le test", new_questionnaire_path, class: 'button', style: "width:60%;" %></li>
-            <li><a class="button" style="width:60%;" href="#infos">En savoir plus</a></li>
+            <li><a class="button more-info" style="width:60%;" href="#infos">En savoir plus</a></li>
         </ul>
     </div>
 

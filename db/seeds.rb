@@ -3,7 +3,7 @@ item_list = [
     "Communication",                            # id: 1
     "Formation & gestion des compétences",      # id: 2
     "Adhésion au changement",                   # id: 3
-    "Bien-être et engagement du personnel"      # id: 4
+    "Bien-être & engagement du personnel"      # id: 4
 ]
 
 puts "Seeding ITEMS"

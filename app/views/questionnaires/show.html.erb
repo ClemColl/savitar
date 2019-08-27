@@ -1,24 +1,73 @@
 <style>
-h1 {
-    padding: 80px;
-    font-size: 2em;
+.full_container {
+    width:100%;
+    height:95%;
 }
-
-.chart-container {
-  margin:auto;
+.chart_container {
+    display:inline-block;
+    height:100%;
+    width:49%;
+    text-align:center;
+}
+.plan_container {
+    display:inline-block;
+    padding-left:50px;
+    width:49%;
+    height:100%;
+    overflow:scroll;
+}
+.card {
+    background-color:#4EB980;
+    /*cursor:pointer;*/
+    cursor:default;
+    left: 180.5px;
+    right: -299.499px;
+    top: 0px;
+    display: block;
+    font-size: 0.85em;
+    line-height: 1.3;
+    border-radius: 2px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px grey;
+    font-weight: 400;
+    color: white;
+    padding:5px;
+    width:33%;
+    margin:5px;
+}
+.flex_container {
+    display:flex;
+    margin-bottom: 1em;
 }
 </style>
 
-<h1>Votre résultat</h1>
+<div class="full_container">
+    <div class="chart_container">
+        <%= radar_chart @data, @option %>
+    </div>
 
-<div class="chart-container">
-    <%= radar_chart          @data, @option %>
+    <div class="plan_container">
+        <h2>Plans d'action</h2>
+        <% Item.all.each do |i| %>
+            <h4> <%= i.name %> </h4>
+            <div class="flex_container">
+            <% Question.where(item_id: i.id).each do |q| %>
+                <% answers_list = q.answers.where("points >= ?", @questionnaire.answers.where(question_id: q.id).first.points) %>
+                <% answers_list.order("points asc").each do |a| %>
+                    
+                    <% if !a.plans.empty? %>
+                        <% a.plans.each do |pl| %>
+                        <div class="card">
+                            <%= "Nom: " + pl.name  %><br>
+                            <%= "Budget: " + pl.budget.to_s %><br>
+                            <%= "Durée: " + pl.duration %><br>
+                            <%= "RH: " + pl.rh %><br>
+                        </div>
+                        <% end %>
+                    <% end %>
+
+                <% end %>
+            <% end %>
+            </div>
+        <% end %>
+    </div>
 </div>
-
-<br><hr>
-
-<h2>Plans d'action</h2>
-
-<% @questionnaire.answers.each do |a| %>
-    <%= a.plans.first.name %>
-<% end %>
