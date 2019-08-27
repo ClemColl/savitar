@@ -8,9 +8,9 @@ class QuestionnairesController < ApplicationController
 
   # GET /questionnaires/1
   def show
-    item_names = []
+    item_names = ["Niveau de maturité global"]
     @point_max = [0, 0, 0, 0]
-    nb_point = [0, 0, 0 ,0]
+    nb_point = [0, 0, 0 ,0, 0]
 
     Item.all.each do |i|
       item_names << i.two_line_name
@@ -33,16 +33,18 @@ class QuestionnairesController < ApplicationController
       x = a.question.item_id
       case 
         when x == 1
-          nb_point[0] += a.points
-        when x == 2
           nb_point[1] += a.points
-        when x == 3
+        when x == 2
           nb_point[2] += a.points
-        else
+        when x == 3
           nb_point[3] += a.points
+        else
+          nb_point[4] += a.points
       end
     end
-    
+
+    nb_point[0] = nb_point.sum / 4
+
     @data = {
       labels: item_names,
       datasets: [
