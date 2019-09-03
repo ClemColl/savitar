@@ -52,20 +52,21 @@
             <h4> <%= i.name %> </h4>
             <div class="flex_container">
             <% Question.where(item_id: i.id).each do |q| %>
-                <% answers_list = q.answers.where("points >= ?", @questionnaire.answers.where(question_id: q.id).first.points) %>
-                <% answers_list.order("points asc").each do |a| %>
-                    
-                    <% if !a.plans.empty? %>
-                        <% a.plans.each do |pl| %>
-                        <div class="card">
-                            <%= "Nom: " + pl.name  %><br>
-                            <%= "Budget: " + pl.budget.to_s %><br>
-                            <%= "Durée: " + pl.duration %><br>
-                            <%= "RH: " + pl.rh %><br>
-                        </div>
+                <% unless @questionnaire.answers.where(question_id: q.id).empty? %>
+                    <% answers_list = q.answers.where("points >= ?", @questionnaire.answers.where(question_id: q.id).first.points) %>
+                    <% answers_list.order("points asc").each do |a| %>
+                        
+                        <% if !a.plans.empty? %>
+                            <% a.plans.each do |pl| %>
+                            <div class="card">
+                                <span style="font-weight:bold;border-bottom: 1.5px solid black;color:black;"><%= pl.name  %></span><br>
+                                <div style="margin-top:5px;">Budget: <%= pl.budget.to_s %> €</div>
+                                <div>Durée: <%= pl.duration %></div>
+                                <div><%= pluralize(pl.rh, " personne") %></div>
+                            </div>
+                            <% end %>
                         <% end %>
                     <% end %>
-
                 <% end %>
             <% end %>
             </div>

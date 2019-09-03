@@ -31,7 +31,7 @@ form {
 }
 </style>
 
-<%= simple_form_for(@questionnaire) do |f| %>
+<%= form_for(@questionnaire) do |f| %>
 
   <% Question.all.each do |q| %>
   <div class="question_container">

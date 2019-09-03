@@ -67,6 +67,11 @@ class QuestionnairesController < ApplicationController
       legend: {
           display: false
       },
+      elements: {
+        point: {
+          backgroundColor: "#4EB980"
+        }
+      },
       scale: {
           ticks: {
               beginAtZero: true,
