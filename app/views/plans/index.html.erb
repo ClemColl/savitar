@@ -15,13 +15,13 @@
   </thead>
 
   <tbody>
-    <% @plans.order(:id).each do |plan| %>
+    <% @plans.order(:answer_id).each do |plan| %>
       <tr>
         <td><%= plan.name %></td>
         <td><%= plan.budget %></td>
         <td><%= plan.duration %></td>
         <td><%= plan.rh %></td>
-        <td><%= plan.answer %></td>
+        <td><%= plan.answer.text %></td>
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

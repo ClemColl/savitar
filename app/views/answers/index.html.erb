@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @answers.order(:id).each do |answer| %>
+    <% @answers.order(:question_id).each do |answer| %>
       <tr>
         <td><%= answer.text %></td>
         <td><%= answer.points %></td>
