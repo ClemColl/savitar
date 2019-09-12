@@ -33,7 +33,7 @@ form {
 
 <%= form_for(@questionnaire) do |f| %>
 
-  <% Question.all.each do |q| %>
+  <% Question.all.order(:id).each do |q| %>
   <div class="question_container">
     <p class="question"><%= q.text %></p>
     

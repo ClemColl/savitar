@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @plans.each do |plan| %>
+    <% @plans.order(:id).each do |plan| %>
       <tr>
         <td><%= plan.name %></td>
         <td><%= plan.budget %></td>
