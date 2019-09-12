@@ -60,9 +60,17 @@
                             <% a.plans.each do |pl| %>
                             <div class="card">
                                 <span style="font-weight:bold;border-bottom: 1.5px solid black;color:black;"><%= pl.name  %></span><br>
-                                <div style="margin-top:5px;">Budget: <%= pl.budget.to_s %> €</div>
-                                <div>Durée: <%= pl.duration %></div>
-                                <div><%= pluralize(pl.rh, " personne") %></div>
+                                <% unless pl.budget.nil? %>
+                                    <div style="margin-top:5px;">Budget: <%= pl.budget.to_s %> €</div>
+                                <% end %>
+
+                                <% unless pl.duration.nil? %>
+                                    <div>Durée: <%= pl.duration %></div>
+                                <% end %>
+
+                                <% unless pl.rh.nil? %>
+                                    <div><%= pluralize(pl.rh, " personne") %></div>
+                                <% end %>
                             </div>
                             <% end %>
                         <% end %>
