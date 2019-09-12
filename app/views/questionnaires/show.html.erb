@@ -64,11 +64,11 @@
                                     <div style="margin-top:5px;">Budget: <%= pl.budget.to_s %> €</div>
                                 <% end %>
 
-                                <% unless pl.duration.nil? %>
+                                <% unless pl.duration.empty? %>
                                     <div>Durée: <%= pl.duration %></div>
                                 <% end %>
 
-                                <% unless pl.rh.nil? %>
+                                <% unless pl.rh.empty? %>
                                     <div><%= pluralize(pl.rh, " personne") %></div>
                                 <% end %>
                             </div>
