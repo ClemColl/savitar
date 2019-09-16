@@ -2,7 +2,7 @@
 
 <h1>Plans</h1>
 
-<table>
+<%# <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -14,22 +14,17 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @plans.order(:answer_id).each do |plan| %>
-      <tr>
-        <td><%= plan.name %></td>
-        <td><%= plan.budget %></td>
-        <td><%= plan.duration %></td>
-        <td><%= plan.rh %></td>
-        <td><%= plan.answer.text %></td>
-        <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <tbody> %>
+  <% @plans.order(:id).each do |plan| %>
 
-<br>
+    <% question = plan.answer.question%>
+      <div><%= question.id%>. <%= question.text %></div>
+      <div><span style="font-weight:bold;"><%= plan.answer.text %></span></div>
+      <div><%= plan.name %></div>
+      <div><%= link_to 'Show', plan %> | <%= link_to 'Edit', edit_plan_path(plan) %> | <%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      <br>
+  <% end %>
+  <%# </tbody>
+</table> %>
 
 <%= link_to 'New Plan', new_plan_path %>
