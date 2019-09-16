@@ -32,11 +32,13 @@
     font-weight: 400;
     color: white;
     padding:5px;
-    width:33%;
+    height:100px;
+    width:30%;
     margin:5px;
 }
 .flex_container {
     display:flex;
+    flex-wrap: wrap;
     margin-bottom: 1em;
 }
 </style>
@@ -59,7 +61,7 @@
                         <% if !a.plans.empty? %>
                             <% a.plans.each do |pl| %>
                             <div class="card">
-                                <span style="font-weight:bold;border-bottom: 1.5px solid black;color:black;"><%= pl.name  %></span><br>
+                                <span style="font-weight:bold;color:black;"><%= pl.name  %></span><br>
                                 <% unless pl.budget.nil? %>
                                     <div style="margin-top:5px;">Budget: <%= pl.budget.to_s %> €</div>
                                 <% end %>
